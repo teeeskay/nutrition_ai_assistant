@@ -1,0 +1,58 @@
+nodes:
+  - id: query_router
+    type: router
+    function: core.router_agent.route_intents
+  - id: confirmation_checker
+    type: tool
+    function: core.confirmation_agent.check_confirmation
+  - id: profile_agent
+    type: tool
+    function: agents.profile_agent.run
+  - id: rdi_agent
+    type: tool
+    function: agents.rdi_agent.run
+  - id: intake_agent
+    type: tool
+    function: agents.intake_agent.run
+  - id: gap_agent
+    type: tool
+    function: agents.nutritional_gap_agent.run
+  - id: critique_agent
+    type: tool
+    function: agents.critique_agent.run
+  - id: recipe_agent
+    type: tool
+    function: agents.recipe_suggestion_agent.run
+  - id: feedback_agent
+    type: tool
+    function: agents.feedback_agent.run
+  - id: schedule_agent
+    type: tool
+    function: agents.schedule_agent.run
+  - id: grocery_agent
+    type: tool
+    function: agents.grocery_agent.run
+
+edges:
+  - from: query_router
+    to: confirmation_checker
+  - from: confirmation_checker
+    to: profile_agent
+  - from: profile_agent
+    to: rdi_agent
+  - from: rdi_agent
+    to: intake_agent
+  - from: intake_agent
+    to: gap_agent
+  - from: gap_agent
+    to: critique_agent
+  - from: critique_agent
+    to: recipe_agent
+  - from: recipe_agent
+    to: feedback_agent
+  - from: feedback_agent
+    to: schedule_agent
+  - from: schedule_agent
+    to: grocery_agent
+  - from: grocery_agent
+    to: END

@@ -1,0 +1,28 @@
+# Core LLM + Prompting
+transformers
+openai
+langgraph
+pydantic>=2.0
+
+# Optional: local inference with vLLM or ollama
+# vllm
+# ollama
+
+# Web Search
+requests
+python-dotenv
+
+# UI
+streamlit
+
+# Testing
+pytest
+
+# Utils
+pandas
+numpy
+
+# Optional LLM APIs
+# together
+# groq
+# huggingface_hub
