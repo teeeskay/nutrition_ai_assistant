@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+
+# Test artifacts
+.coverage
+htmlcov/
+
+# VSCode / Cursor
+.vscode/
+.history/
+
+# Data and logs
+data/session_store.json
+*.log
+*.zip

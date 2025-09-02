@@ -1,0 +1,35 @@
+# deprecated
+
+nodes:
+  - id: extract_profile
+    type: tool
+    function: agents.profile_extractor_agent.profile_extractor_agent
+
+  - id: validate_profile
+    type: router
+    function: agents.profile_validator_agent.profile_validator_agent
+
+  - id: prompt_user
+    type: tool
+    function: agents.prompt_builder_agent.prompt_builder_agent
+
+  - id: nutrient_needs_agent
+    type: tool
+    function: agents.nutrient_needs_agent.nutrient_needs_agent
+
+edges:
+  - from: extract_profile
+    to: validate_profile
+
+  - from: validate_profile
+    condition: complete
+    to: nutrient_needs_agent
+
+  - from: validate_profile
+    condition: incomplete
+    to: prompt_user
+
+  - from: prompt_user
+    to: exctract_profile
+
+entry_point: extract_profile
